@@ -6,3 +6,4 @@ pylint
 pytest-cov
 pytest-xdist
 pytest==7.4.3
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
