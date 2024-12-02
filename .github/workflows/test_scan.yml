@@ -18,8 +18,10 @@ jobs:
     #Sepcify trigger conditions to react to (in case of additional triggers are added to workflow)
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     steps:
-      
-      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
 
       - name: Checkout code
         uses: actions/checkout@v4
