@@ -17,6 +17,9 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
       
       #Comment in to generate multiple images (specified by parameter 'platform') with QEMU and Buildx
 
