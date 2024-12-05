@@ -124,10 +124,10 @@ jobs:
     steps:
       - name: check result
         run: |
-          echo "Condition evaluation: $((needs.test.result == 'success' && (github.ref_name != 'main' || needs.test.security == 'success')))"
-          echo "Test result (success check): ${{ needs.test.result == 'success' }}"
-          echo "Is branch not 'main'?: ${{ github.ref_name != 'main' }}"
-          echo "Is test security success?: ${{ needs.test.security == 'success' }}"
+          echo "Condition evaluation: ${{ needs.test.result == 'success' && (github.ref_name != 'main' || needs.test.security == 'success') }}"
+          echo "Test result (success check): ${{ needs.test.result }}"
+          echo "Is branch not 'main'?: ${{ github.ref_name }}"
+          echo "Is test security success?: ${{ needs.test.security }}"
       - run: |
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
