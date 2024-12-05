@@ -120,7 +120,7 @@ jobs:
     needs:
       - test
       - security
-    if: always() #needs.test.result == 'success' && (github.ref_name != 'main' || needs.security.result == 'success')
+    if: always() && needs.test.result == 'success' && (github.ref_name != 'main' || needs.security.result == 'success')
     steps:
       - name: check result
         run: |
