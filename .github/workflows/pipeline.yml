@@ -118,7 +118,7 @@ jobs:
       contents: read        # Required for accessing the repository contents
       packages: write       # Allows writing to GitHub Container Registry
     needs: [test, security]
-    if: always()
+    if: needs.test.result == 'success' && (github.ref_name != 'main' || needs.test.security == 'success')
     steps:
       - run: |
           echo "Repository: ${{ github.repository }}"
