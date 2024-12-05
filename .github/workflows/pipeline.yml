@@ -119,6 +119,7 @@ jobs:
       packages: write       # Allows writing to GitHub Container Registry
     needs: [test, security]
     if: always()
+    steps:
       - run: |
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
