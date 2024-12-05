@@ -67,7 +67,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    #Sepcify trigger conditions to only react to push (not to pull_request)
+    #Speficify trigger conditions to only react to push (not to pull_request)
     if: github.event_name == 'push'
     steps:
       - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
