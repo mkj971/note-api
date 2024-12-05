@@ -117,15 +117,17 @@ jobs:
     permissions:
       contents: read        # Required for accessing the repository contents
       packages: write       # Allows writing to GitHub Container Registry
-    needs: [test, security]
+    needs:
+      - test
+      - security
     if: always() #&& needs.test.result == 'success' && (github.ref_name != 'main' || needs.test.security == 'success')
     steps:
       - name: check result
         run: |
-          echo 'always()'
-          echo 'needs.test.result'
-          echo 'github.ref_name != 'main''
-          echo 'needs.test.security == 'success''
+          echo always()
+          echo needs.test.result
+          echo github.ref_name != 'main'
+          echo needs.test.security == 'success'
       - run: |
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
