@@ -124,10 +124,10 @@ jobs:
     steps:
       - name: check result
         run: |
-          echo always()
-          echo needs.test.result
-          echo github.ref_name != 'main'
-          echo needs.test.security == 'success'
+          echo '${{ always() }}'
+          echo '${{ needs.test.result }}'
+          echo '${{ github.ref_name != 'main' }}'
+          echo '${{ needs.test.security == 'success' }}'
       - run: |
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
